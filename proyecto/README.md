@@ -18,9 +18,13 @@ Implementación de servidor Linux automatizado con Docker para la asignatura Int
 ## Estructura del Proyecto
 
 /proyecto/
+
 ├── datos/ # Archivos de configuración
+
 ├── web/ # Archivos del sitio web
+
 ├── scripts/ # Scripts de automatización
+
 └── capturas/ # Evidencias del proyecto
 **************************************************************
 --------------------------------------------------------------
