@@ -25,6 +25,26 @@ Implementación de servidor Linux automatizado con Docker para la asignatura Int
 ********************************************************************
 --------------------------------------------------------------------
 ********************************************************************
+#Ejecutar el script principal
+./reporte_sistema.sh
+
+--------------------------------------------------------------------
+********************************************************************
+
+#agregar permisos
+chmod +x reporte_sistema.sh
+./reporte_sistema.sh
+--------------------------------------------------------------------
+********************************************************************
+
+##Conexión al repositorio por medio de SSH
+git@github.com:ISL2025/proyecto-linux_grupo5.git
+
+--------------------------------------------------------------------
+********************************************************************
+
+
+
 ## Instalación y Configuración
 1. Clonar repositorio: `git clone [url]`
 2. Ejecutar script de configuración: `./scripts/configurar.sh`
