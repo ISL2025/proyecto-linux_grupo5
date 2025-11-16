@@ -24,18 +24,77 @@ Implementación de servidor Linux automatizado con Docker para la asignatura Int
 └── capturas/ # Evidencias del proyecto
 ********************************************************************
 --------------------------------------------------------------------
-********************************************************************
-#Ejecutar el script principal
-./reporte_sistema.sh
+#Creación de los usuarios:
+
+adminsys
+
+tecnico
+
+visitante
+
+#Creación de grupos:
+
+soporte
+
+web
+
+Asignación de grupos:
+
+adminsys → privilegios sudo
+
+tecnico → grupo soporte
+
+visitante → grupo **web`
 
 --------------------------------------------------------------------
 ********************************************************************
 
-#agregar permisos
-chmod +x reporte_sistema.sh
-./reporte_sistema.sh
+#Permisos configurados:
+
+datos/ pertenece al grupo soporte
+
+web/ pertenece al grupo web
+
+Se activó el bit setgid en ambos directorios para que los archivos heredaran el grupo:
+chmod g+s /proyecto/datos
+chmod g+s /proyecto/web
 --------------------------------------------------------------------
 ********************************************************************
+#Automatización y Monitoreo
+Script de Monitoreo
+
+Se creó el archivo:
+
+/proyecto/scripts/reporte_sistema.sh
+
+Con información como:
+
+Fecha y hora actual
+
+Nombre del host
+
+Usuarios conectados
+
+Espacio libre en disco
+
+Memoria RAM disponible
+
+Contenedores Docker activos
+
+Se dieron permisos de ejecución:
+
+chmod +x /proyecto/scripts/reporte_sistema.sh
+--------------------------------------------------------------------
+********************************************************************
+#Tarea Programada (Cron)
+
+Se creó la tarea cada 30 minutos:
+
+*/30 * * * * /proyecto/scripts/reporte_sistema.sh >> /var/log/proyecto/reporte_sistema.log
+
+--------------------------------------------------------------------
+********************************************************************
+
 
 ##Conexión al repositorio por medio de SSH
 git@github.com:ISL2025/proyecto-linux_grupo5.git
@@ -52,6 +111,36 @@ git@github.com:ISL2025/proyecto-linux_grupo5.git
 ********************************************************************
 --------------------------------------------------------------------
 ********************************************************************
+#Docker
+Instalación y Configuración
+
+Se instaló Docker y se habilitó el servicio:
+
+sudo systemctl enable docker
+sudo systemctl start docker
+
+
+Se añadieron los usuarios adminsys y tecnico al grupo docker:
+
+sudo usermod -aG docker adminsys
+sudo usermod -aG docker tecnico
+
+#Verificación Inicial
+
+Ejecución del contenedor de prueba:
+
+docker run hello-world
+
+
+Listado de contenedores:
+docker ps -a
+--------------------------------------------------------------------
+********************************************************************
+
+Evidencias
+Las capturas del proceso se guardaron en:
+/proyecto/capturas/
+
 ## Tecnologías Utilizadas
 - Linux Ubuntu/Mint/Debian
 - Docker
