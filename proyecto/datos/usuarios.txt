@@ -1,0 +1,19 @@
+Usuarios y grupos creados — Proyecto Grupo 5
+
+Hostname configurado:
+servidor-grupo5
+
+Usuarios:
+- adminsys  → miembro del grupo sudo
+- tecnico   → miembro del grupo soporte
+- visitante → miembro del grupo web
+
+Grupos creados:
+- soporte
+- web
+
+Permisos y directorios:
+- /proyecto/datos    (grupo soporte, herencia activa)
+- /proyecto/web      (grupo web, herencia activa)
+- /proyecto/scripts  (root)
+- /proyecto/capturas (root)
